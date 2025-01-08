@@ -1,0 +1,44 @@
+import java.ulil.*;
+class BFS{
+    int n;
+    int[][] adj;
+    public BFS(int n){
+        adj = new int[n][n];  
+    }
+    public void BFS(int v){
+        boolean[] visited = new boolean[n];
+        Arrays.fill(visited,false);
+        Queue<Integer> q = new LinkedList<>();
+        q.add(v);
+        visited[v]=true;
+        while(!q.isempty()){
+            int h=q.poll();
+            System.out.print(h +" ");
+            for(int i=0;i<n;i++){
+                if(adj[h][i]==1 && !visited[i]){
+                    q.add(i);
+                    visited[i] = true;
+                }
+            }
+        }
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter no.of vertices:");
+        int n = sc.nextInt();
+        BFS g = new BFS(n);
+        System.out.println("enter the adjaceency matrix(" +v+"x" +v+"): ");
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                g.adj[i][j] = sc.nextInt();
+                }
+                }
+        System.out.println("Enter the starting vertex:");
+        int v = sc.nextInt();
+        System.out.println("BFS traversal starting from vertex " + start + ":")
+        g.BFS(v);
+        sc.close();
+        }
+        }
+
