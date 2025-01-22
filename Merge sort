@@ -1,0 +1,59 @@
+import java.util.Scanner;
+public class  Mergesort{
+    private static int [] b;
+    public static void merge(int[] arr, int low, int mid, int high) {
+        int i = low;
+        int j = mid+1;
+        int k = low;
+        while((i<=mid)&&(j<=high)){
+            if(arr[i]<=arr[j]){
+                b[k]=arr[i];
+                i++;
+            }
+            else{
+                b[k]=arr[j];
+                j++;
+                }
+            k++;
+        }
+        while(i<=mid){
+            b[k]=arr[i];
+            i++;
+            k++;
+            }
+        while(j<=high)
+        {
+            b[k]=arr[j];
+            j++;
+            k++;
+            }
+        for(int h = low; h<=high;h++){
+            arr[h]=b[h];
+        }
+
+     }
+
+     public static void mergeSort(int[] arr, int low, int high) {
+        if(low<high){
+                int mid=(low+high)/2;
+                mergeSort(arr,low,mid);
+                mergeSort(arr,mid+1,high);
+                merge(arr,low,mid,high);
+                 }
+        }
+     public static void main(String[]args){
+          Scanner sc = new Scanner(System.in);
+           int n = sc.nextInt();
+           int[] arr = new int[n];
+           b = new int[n];
+           for(int i = 0; i < n; i++) {
+                  arr[i] = sc.nextInt();
+           }
+           mergeSort(arr,0,n-1);
+           for(int i = 0; i < n; i++) {
+                   System.out.print(arr[i]+" ");
+                   sc.close();
+                  }
+      }   
+}
+                             
