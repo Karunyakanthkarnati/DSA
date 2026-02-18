@@ -15,7 +15,7 @@ class SecondLargest{
                 second_largest = largest;
                 largest = arr[i];
             }
-            else if(arr[i]>second_largest){
+            else if(arr[i]>second_largest && arr[i] != largest){
                 second_largest = arr[i];
             }
         }
